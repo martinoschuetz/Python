@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+import sys
+
+filename="adr.csv"
+if len(sys.argv)>1: filename=sys.argv[1]
+
+sep=","
+
+db=[]
+fh=open(filename)
+fieldnames=fh.readline().rstrip().split(sep)
+for line in fh:
+   db.append(dict(zip(fieldnames,line.rstrip().split(sep))))
+   
+print(sep.join(fieldnames))
+for row in db:
+    lst=[]
+    for k in fieldnames:
+      lst.append(row[k])
+    print(sep.join(lst))
+
+fh=open("out.csv","w")
+print(sep.join(fieldnames),file=fh)
+for row in db:
+    lst=[]
+    for k in fieldnames:
+        lst.append(row[k])
+    print(sep.join(lst),file=fh)
+fh.close()
+
+# with open("adr.csv") as fh:
+#     lkjlkjlkj
+#     jkjkljklj
+
+
+erg=[]
+k="ort"
+v="muenchen"
+for row in db:
+   if row[k]==v: erg.append(row)
+print(erg)
+
+for row in erg:
+   print(row['vname'],row['email'])
+
+
+

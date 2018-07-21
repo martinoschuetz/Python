@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import sys
+import string
+
+if len(sys.argv)<2:
+    print("USAGE: ....",file=sys.stderr)
+    sys.exit(1)
+
+filename=sys.argv[1]
+
+for sc in string.ascii_lowercase:
+   n=0
+   for line in open(filename,"r"):
+      for c in line:
+         if c==sc: n+=1
+   if n: print(sc,"kommt",n,'mal vor')
+
+fh=open("/etc/passwd")
+line=fh.readline()
+while line != "":
+   .....
+fh.close()
+
+

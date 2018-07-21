@@ -1,0 +1,16 @@
+
+import sys
+import rwcsv
+# from rwcsv import *
+# import rwcsv as r
+
+filename="adr.csv"
+if len(sys.argv)>1: filename=sys.argv[1]
+
+erg=rwcsv.einlesen(filename)
+(fieldnames,db)=erg
+rwcsv.ausgeben(erg)
+rwcsv.ausgeben(erg,outfile="out.csv")
+serg=rwcsv.suchen(erg,"ort","muenchen")
+rwcsv.ausgeben(serg,outfile="sout.csv")
+
