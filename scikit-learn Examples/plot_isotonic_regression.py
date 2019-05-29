@@ -11,19 +11,18 @@ function such as linearity. For comparison a linear regression is also
 presented.
 
 """
+from sklearn.utils import check_random_state
+from sklearn.isotonic import IsotonicRegression
+from sklearn.linear_model import LinearRegression
+from matplotlib.collections import LineCollection
+import matplotlib.pyplot as plt
+import numpy as np
 print(__doc__)
 
 # Author: Nelle Varoquaux <nelle.varoquaux@gmail.com>
 #         Alexandre Gramfort <alexandre.gramfort@inria.fr>
 # License: BSD
 
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.collections import LineCollection
-
-from sklearn.linear_model import LinearRegression
-from sklearn.isotonic import IsotonicRegression
-from sklearn.utils import check_random_state
 
 n = 100
 x = np.arange(n)
