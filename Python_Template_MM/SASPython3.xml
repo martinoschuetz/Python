@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ModelTemplate 
+	name="SASPython3"
+	class="com.sas.analytics.modelmanager.metadata.model.ClassificationModelInterface"
+	resource="com.sas.analytics.modelmanager.Resources"
+	type="ClassificationModel"
+	function="classification"
+	tool="SASProc"
+	validate="N"
+	modelMetaMacro="genVarMacro.sas"
+	displayName="logisticregoutest.name.txt"
+	description="logisticregoutest.desc.txt"
+	scoreCodeType="SAS Program"
+	retrainable="Y"
+	retrainFileName="Training.sas"
+	>
+<FileList libRef="SMMmodel">
+	<File name="IGN_STATS.csv" required="Y" autoDisplay="Y" report="Y" type="text"   role="Train" description="file.input.bindefinition.desc.txt" entryKey="$IGN:STATS"/>
+	<File name="EMPublishScore.sas" required="Y" autoDisplay="Y" report="Y" type="text"   role="Score" description="file.input.binsascode.desc.txt" entryKey="$IGN:EMPUBLISHSCORECODE"/>
+	<File name="Scorecard_GainsTable.csv" required="Y" autoDisplay="Y" report="Y" type="text"   role="Train" description="file.output.bindefinition.desc.txt" entryKey="$Scorecard:GAINSTABLE"/>
+	<File name="score.sas"            required="N" autoDisplay="Y" report="Y" type="text"   description="file.score.desc.txt"  role="main"  fileRef="ScoreCod" />
+	<File name="modelinput.sas7bdat"  required="N" autoDisplay="N" report="Y" type="binary" description="file.inputdataset.desc.txt"  role="Score" fileRef=""  />
+	<File name="modeloutput.sas7bdat" required="N" autoDisplay="N" report="Y" type="binary" description="file.outputdataset.desc.txt" role="Score" fileRef="" />
+	<File name="target.sas7bdat"      required="N" autoDisplay="N" report="Y" type="binary" description="file.targetdataset.desc.txt" role="Score" fileRef="" />
+	<File name="inputvar.xml"  	  	  required="N" autoDisplay="Y" report="Y" type="binary" description="file.input.desc.txt"  role="Score" fileRef="Input"  />
+	<File name="outputvar.xml" 	      required="N" autoDisplay="Y" report="Y" type="binary" description="file.output.desc.txt" role="Score" fileRef="Output" />
+	<File name="targetvar.xml"        required="N" autoDisplay="N" report="Y" type="binary" description="file.target.desc.txt" role="Score" fileRef="Target" />
+	<File name="Training.sas"         required="N" autoDisplay="N" report="N" type="text"   description="file.trainingcode.desc.txt"  role="Train" fileRef="Trainsas"  />
+	<File name="Training.log"  	      required="N" autoDisplay="N" report="N" type="text"   description="file.traininglog.desc.txt"  role="Train"  fileRef="Trainlog"/>
+	<File name="Training.lst"         required="N" autoDisplay="N" report="N" type="text"   description="file.traininglst.desc.txt" role="Train"  fileRef="Trainlst"/>
+	<File name="outest.sas7bdat" 	  required="N" autoDisplay="N" report="Y" type="binary" description="file.outest.desc.txt" role="Score" fileRef="Outest" />
+	<File name="outmodel.sas7bdat"    required="N" autoDisplay="N" report="Y" type="binary" description="file.logisticoutmodel.desc.txt"  role="Score" fileRef="OutModel" />
+    <File name="model.dat"            required="N" autoDisplay="N" report="Y" type="binary" role="Score" fileRef="Model" />
+    <File name="field_disp.dat"       required="N" autoDisplay="N" report="Y" type="binary" role="Score" fileRef="FDisp" />
+	<File name="Output.spk"           required="N" autoDisplay="N" report="N" type="binary" description="file.outputspk.desc.txt"  role=""  fileRef="" />
+	<File name="Format.sas7bcat"      required="N" autoDisplay="N" report="N" type="binary" description="file.formatcatlog.desc.txt" role="Score"  fileref="Format"/>
+	<File name="Dataprep.sas"         required="N" autoDisplay="N" report="N" type="text"   description="file.dataprep.desc.txt"  role="Score"  fileRef="precode" />
+	<File name="Notes.txt" 		      required="N" autoDisplay="N" report="N" type="text"   description="file.notes.desc.txt"  role=""  fileRef="Notes"/>
+</FileList>
+<Properties type="System" resource="com.sas.analytics.modelmanager.metadata.model.Resources">
+	<Property name="Algorithm"             type="String" editAllowed="Y" required="N" displayName="algorithm.name.txt"               description="algorithm.desc.txt"               tag="Algorithm"             namespace="http://www.sas.com/xml/namespace/mmsasprop.webdav1.1" />
+	<Property name="Modeler"               type="String" editAllowed="Y" required="N" displayName="modeler.name.txt"                 description="modeler.desc.txt"                 tag="Modeler"               namespace="http://www.sas.com/xml/namespace/mmsasprop.webdav1.1" />
+	<Property name="Label"                 type="String" editAllowed="Y" required="N" initial="" displayName="label.name.txt"             description="label.desc.txt"            tag="Label"            namespace="http://www.sas.com/xml/namespace/mmsasprop.webdav1.1" />
+</Properties>
+<Properties type="User">
+	<Property name="User1"               type="String" editAllowed="Y" required="N" displayName="User1"                 description="User defined name/value pair."                 tag="User1"               namespace="http://www.sas.com/xml/namespace/mmuserprop.webdav1.1" />
+</Properties>
+</ModelTemplate>
